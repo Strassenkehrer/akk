@@ -10,6 +10,5 @@ $action = "new";
 include("head.php");
 include("editform.php");
 
-
 include("footer.php");
 ?>
