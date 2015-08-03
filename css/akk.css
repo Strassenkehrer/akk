@@ -1,0 +1,77 @@
+html {margin:0; padding:0; height:100%;}
+body {font:100.01% sans-serif; background-color:#FEFEFE; color:#222; margin:0; padding:0 30px; overflow: scroll; height:100%;}
+
+#wrapper      {position:relative; min-height:100%; margin:0; padding:0;}
+
+#titel        {position:fixed; left:0px; top:0; height:170px; width:100%; z-index:100; background-color:#FFF; margin:0; border-top: 10px solid orange; min-width:1000px;}
+#titel ul     {margin:10px 30px 0 0; padding:0 150px 10px 10px; float:right; position:relative; min-height: 140px; z-index:300; background:url(/img/logo.png) top right no-repeat;}
+#titel li     {margin:0; padding:0; list-style-type:none; border-bottom:1px solid #333;}
+#titel a      {display:block; padding:2px 6px; text-decoration:none;}
+
+#search       {height:174px; position:relative; width:100%; padding:0 30px; xborder-top:1px solid #fff;}
+#search form  {clear:left;}
+#search table {position:absolute; left:30px; bottom:0; }
+#search input[type=submit] {font-size:1.5em; font-weight:bold; padding:2px 10px;}
+
+#result {margin-top: 180px; padding-bottom:40px; z-index:2; position:relative; z-index:20;}
+
+#footer {position: fixed; bottom:0; left:0; width:100%; font-size:8pt; height: 18px; text-align:center; padding:1px 0; background-color:orange; z-index:30;}
+
+form {padding:0;}
+h1 {float:left; margin:0; padding:10px 30px; font-size:2em; z-index:200; }
+#titel h2 {clear:left; float:left; margin:0; padding:0 30px; font-size:1.8em;}
+h2 {margin:0; padding:10px 0; font-size:1.8em;}
+input[type=submit] {cursor:pointer;}
+
+table {border-collapse:collapse; margin:0; position:relative; } 
+td,th {border-top:1px solid #999; border-bottom:1px solid #999; border-left:1px solid #BFBFBF; border-right:1px solid #BFBFBF; vertical-align:middle; text-align:left; padding:1px 6px;}
+th    {background-color: #EFEFEF;}
+tfoot {font-weight:bold;}
+
+table.akk {width:1000px;}
+fieldset {font-size:0.75em;}
+input[type=text], textarea    {font-size:1.3em; background-color:#FFF3DB;}
+
+a {color:#002244;}
+a:hover, a.current {background-color:orange;}
+
+abbr {position: relative; cursor:help;}
+
+abbr:hover::after {
+    position: absolute;
+    bottom: 10%;
+    left: 100%;
+    display: block;
+    padding: 1px 3px;
+    font-size:80%;
+    border:1px solid #333;
+    background: #fff;
+    content: attr(datatitle);
+    z-index:999;
+}
+
+.fl {float:left; margin-right:20px;}
+.fr {float:right; margin-left:20px;}
+.cb {clear:both;}
+.cr {clear:right;}
+.mini {font-size:80%;}
+.c {text-align:center;}
+.r {text-align:right;}
+.b {font-weight:bold;}
+.refc  {color:blue;}
+
+.w20  {width:20ex;}
+.w40  {width:40ex;}
+.wmax {width:100%;}
+
+.red     {background-color:#F00;}
+.green   {background-color:#ACE200;}
+.yellow  {background-color:#FFE108;}
+.orange  {background-color:#F08000;}
+.warning {background-color:#F30EFF;}
+
+.akkbutton   {width:60px; font-size:14px; text-align:center; vertical-align:middle;padding:0 0 2px 0; }
+.deakk       {color:red;}
+.akkedit     {color:blue;}
+.payedit     {font-size:16px; font-weight:bold; background-color:#F08000; padding:3px 0; width:150px; -moz-border-radius: 4px; border-radius: 4px; border:2px outset #ECE9D8;}
+.cancel      {background-color:#CCCCCC;}

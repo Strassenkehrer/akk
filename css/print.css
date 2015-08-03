@@ -1,0 +1,13 @@
+html {margin:0; padding:0;}
+body {font:10pt sans-serif; background-color:#FFF; color:#000; margin:0; padding:15mm;}
+
+#search       {display:none;}
+
+#footer {display:none;}
+#titel ul {display:none;}
+
+h1 {margin:0 0 10pt 0;}
+
+table {border-collapse:collapse; margin:0;} 
+td,th {border-top:1px solid #999; border-bottom:1px solid #999; border-left:1px solid #BFBFBF; border-right:1px solid #BFBFBF; vertical-align:middle; text-align:left; padding:1px 6px;}
+tfoot {font-weight:bold;}

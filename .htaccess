@@ -1,0 +1,4 @@
+AuthName "PHPMyAdmin"
+AuthType Basic
+AuthUserFile /web/akk/data/passwd.users
+require valid-user
