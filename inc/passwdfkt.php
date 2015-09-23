@@ -52,7 +52,7 @@ function pSetPasswd($User,$Passwort)
   $fPwd=fopen($info->htpasswd,"r");
   if ($fZwi==NULL || $fPwd==NULL)
   {
-     errmsg("Au weia 1");
+     errmsg("Au weia 1 - Kann Passwort Datei <" . $info->htpasswd . "> nicht öffnen");
      die();
   }
   while(!feof($fPwd))

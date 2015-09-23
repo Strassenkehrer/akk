@@ -33,17 +33,27 @@ class allginfo
         $this->datum = $settings['akk']['Datum'];
         $this->ort = $settings['akk']['Ort'];
         $this->ebene = $settings['akk']['Ebene'];
-/*
-        $this->rootdir = $settings['system']['rootdir'];
-        $this->akkuser = $_SERVER["REMOTE_USER"];
+        
+        $usercount=$db->query("SELECT COUNT(*) AS zahl FROM tbluser")->fetch();
+        if ($usercount==NULL) die("Usercount ist kaputt");
+        $this->userzahl=$usercount['zahl'];
+        if ($this->userzahl==0) {
+            $this->akkuser =  'admin';
+            $this->akkrolle=9;
+			syslog(LOG_WARNING,"AkkTool: No User maintained in DB:tbluser, granting admin access. Client: $access "
+			. "{$_SERVER['REMOTE_ADDR']} ({$_SERVER['HTTP_USER_AGENT']})");
+        } else {
+			$this->rootdir = $settings['system']['rootdir'];
+			$this->akkuser = $_SERVER["REMOTE_USER"];
+	
+			$userres=$db->query("SELECT rolle FROM tbluser WHERE login=" . $db->quote($this->akkuser))->fetch();
+			if ($userres==NULL) die("User ist kaputt");
+			$this->akkrolle=$userres['rolle'];
+			if ($this->akkrolle==0) die("User ist gesperrt");
+			syslog(LOG_WARNING,"AkkTool: Access to user " . $this->akkuser . " granted. Client: $access "
+			. "{$_SERVER['REMOTE_ADDR']} ({$_SERVER['HTTP_USER_AGENT']})");
+        }
 
-        $userres=$db->query("SELECT rolle FROM tbluser WHERE login=" . $db->quote($this->akkuser))->fetch();
-        if ($userres==NULL) die("User ist kaputt");
-        $this->akkrolle=$userres['rolle'];
-        if ($this->akkrolle==0) die("User ist gesperrt");
-*/
-$this->akkuser =  'admin';
-$this->akkrolle=9;
     }
 }
 
