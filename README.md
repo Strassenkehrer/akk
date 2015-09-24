@@ -41,8 +41,18 @@ Listen 1337
    Neustart des Apache2: 
    sudo apachectl restart
 
+3. Trage deinen Parteitag in inc/akk.ini ein:
 
-3. Verbinde dich auf http://localhost:1337/ oder https://localhost:1337/
+	[akk]
+	Veranstaltung = Bezeichnung des Parteitags, z.B. BPT 15.1
+	Datum = Datumszeitraum, z.B. 25.7. - 26.7.2015
+	Ort = Ort des Parteitags, z.B. Würzburg
+	Ebene = Gliederungsebene: "BV" für einen BPT (Statistik über LVs),
+			"LV" für einen LPT (Statistik über KVs)
+			oder "KV" für eine Kreismitgliederversammlung (Statistik über Orte)
+
+
+4. Verbinde dich auf http://localhost:1337/ oder https://localhost:1337/
    Nach login sollte rechts ein Menü erscheinen.
    Unter "Statistik" gibt es eine "Userverwaltung".
    Trage zuerst deinen admin Account ein (Beipiel von oben: admin1)

@@ -10,13 +10,18 @@ if ($info->ebene == "LV")
   $selebene="kv";
   $selhead="KV";
 }
+else if ($info->ebene == "KV")
+{
+  $selebene="ort";
+  $selhead="Ort";
+}
 else
 {
   $selebene="lv";
   $selhead="LV";
 }
 
-$sql = "select lv, kv, count(akkId) AS mitglieder,sum(akk) as akkreditiert,
+$sql = "select lv, kv, ort, count(akkId) AS mitglieder,sum(akk) as akkreditiert,
                sum(offenerbeitrag<1) AS stimmb
         from tblakk group by " . $selebene . " order by " . $selebene . "";
 $q=$db->query($sql);
