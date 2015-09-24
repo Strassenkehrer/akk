@@ -8,24 +8,40 @@ Userverwaltung für das AKK-TOOL
 ===============================
 In akk.ini und inc/akk.ini sind Einträge für eine htpasswd Datei definiert, 
 diese sind aber nicht relevant. 
+
+Relevant ist das "rootdir". Dieses sollte aus Sicherheitsgründen nicht das
+gleiche sein wie dieses hier. Wenn es als
+
+	rootdir = /web/akk
+	
+definiert ist, dann sind dadrunter Verzeichnisse data und upload wichtig.
+
+	mkdir -p /web/akk/data
+	mkdir -p /web/akk/upload
+
+Die shell scripte (*.sh) aus dem "_sql" Verzeichnis müssen nach /web/akk/data 
+kopiert werden
+
+	cp _sql/*.sh /web/akk/data
+   
 Relevant sind die Einträge in .htaccess und inc/.htaccess,
 welche aber auf die (gleiche) Datei "/web/akk/data/passwd.users" zeigen.
-   
+
 Diese muss angelegt werden, Beispiel:
 
-	htpasswd -c /web/akk/data/passwd.users user1 
-	htpasswd -b /web/akk/data/passwd.users admin1 admin1
+	htpasswd -c /web/akk/data/passwd.users admin
+	
+Es wird empfohlen ein sichere Passwörter zu nehmen!
 
-Es wird empfohlen ein anderes sicherere Passwörter zu nehmen!
+Weitere User kannst du über die Web-Oberfläche anlegen.
+Falls du einen User "admin" anlegst achte darauf das er die Rolle "9" bekommt!
 
-Der Zugang mit Passwort wird über die htpasswd geregelt, die Rollenverteilung
-(Admin, Akkrediteur) aber über die Datenbank.  Ja, das ist übel gehackt aber
-ist im Moment so.
-Darum legst du auch noch die User wie folgt an:
+Stelle sicher, das der apache Webserver die Datei lesen und schreiben kann,
+z.B. durch ein
 
-INSERT INTO tbluser (login, name, rolle) VALUES ('admin1', 'Der Admin', 9);
-INSERT INTO tbluser (login, name, rolle) VALUES ('user1', 'Hans Wurst', 1);
-
+	chgrp -R _www /web/akk
+	chmod -R g+w /web/akk
+	chmod -R a+rx /web
 
 Mac OS X - Wie man apache, sql und php ans laufen bringt
 ========================================================

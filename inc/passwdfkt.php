@@ -52,7 +52,7 @@ function pSetPasswd($User,$Passwort)
   $fPwd=fopen($info->htpasswd,"r");
   if ($fZwi==NULL || $fPwd==NULL)
   {
-     errmsg("Au weia 1 - Kann Passwort Datei <" . $info->htpasswd . "> nicht öffnen");
+     errmsg("Au weia 001 - Kann Passwort Datei '" . $info->htpasswd . "' nicht öffnen");
      die();
   }
   while(!feof($fPwd))
@@ -67,7 +67,7 @@ function pSetPasswd($User,$Passwort)
   fseek($fZwi,0);
   if ($fZwi==NULL || $fPwd==NULL)
   {
-     errmsg("Au weia 2");
+     errmsg("Au weia 002 - Kann Passwort Datei '" . $info->htpasswd . "' nicht beschreiben");
      die();
   }
   while(!feof($fZwi))
@@ -94,7 +94,7 @@ function pCheckPasswd($User,$Passwort)
   $fPwd=fopen($info->htpasswd,"r");
   if ($fPwd==NULL)
   {
-     errmsg("Au weia 1 " . $info->htpasswd);
+     errmsg("Au weia 003 - Kann Passwort Datei '" . $info->htpasswd . "' nicht öffnen");
      die();
   }
   while(!feof($fPwd))

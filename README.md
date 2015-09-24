@@ -55,5 +55,4 @@ Listen 1337
 4. Verbinde dich auf http://localhost:1337/ oder https://localhost:1337/
    Nach login sollte rechts ein Menü erscheinen.
    Unter "Statistik" gibt es eine "Userverwaltung".
-   Trage zuerst deinen admin Account ein (Beipiel von oben: admin1)
-   
+   Falls du deinen admin Account einträgst, achte auf die richtige Rolle.
