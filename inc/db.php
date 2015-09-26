@@ -24,7 +24,11 @@ class allginfo
     public $htpasswd;
     public $ebene;
 
-    function __construct($file = 'akk.ini')
+    /*
+     * $modus: 0 = normal mit login/user check gegen DB.tbluser
+     *         1 = Aufruf von/für Statistikseite, ohne login
+     */
+    function __construct($file = 'akk.ini', $modus = 0)
     {
         $db = new mydb();
 
@@ -35,38 +39,42 @@ class allginfo
         $this->ort = $settings['akk']['Ort'];
         $this->ebene = $settings['akk']['Ebene'];
         
-		$this->rootdir = $settings['system']['rootdir'];
-		if ($this->rootdir == "") {
-			$this->rootdir = "/web/akk";
-		}
-		$this->htpasswd = $this->rootdir . "/data/passwd.users";
-        
-        $usercount=$db->query("SELECT COUNT(*) AS zahl FROM tbluser")->fetch();
-        if ($usercount==NULL) die("Usercount ist kaputt");
-        $this->userzahl=$usercount['zahl'];
-        if ($this->userzahl==0) {
-            $this->akkuser =  'admin';
-            $this->akkrolle=9;
-			syslog(LOG_WARNING,"AkkTool: No User maintained in DB:tbluser, granting admin access. Client: $access " . "{$_SERVER['REMOTE_ADDR']} ({$_SERVER['HTTP_USER_AGENT']})");
-        } else {
-			$this->akkuser = $_SERVER["REMOTE_USER"];
-	
-			$userres=$db->query("SELECT rolle FROM tbluser WHERE login=" . $db->quote($this->akkuser))->fetch();
-			if ($userres==NULL) {
-				if ($this->akkuser == "admin") {
-					$this->akkrolle = 9;
-					syslog(LOG_WARNING,"AkkTool: No admin user maintained in DB:tbluser, granting admin access. Client: $access " . "{$_SERVER['REMOTE_ADDR']} ({$_SERVER['HTTP_USER_AGENT']})");
-				} else {
-					die("User existiert nicht in der Datenbank");
-				}
-			} else {
-				$this->akkrolle=$userres['rolle'];
-				if ($this->akkrolle==0) die("User ist gesperrt");
-				syslog(LOG_WARNING,"AkkTool: Access to user " . $this->akkuser . " granted. Client: "
-				. "{$_SERVER['REMOTE_ADDR']} ({$_SERVER['HTTP_USER_AGENT']})");
-			}
+        $this->rootdir = $settings['system']['rootdir'];
+        if ($this->rootdir == "") {
+            $this->rootdir = "/web/akk";
+        }
+        $this->htpasswd = $settings['system']['htpasswd'];
+        if ($this->htpasswd == "") {
+            $this->htpasswd = $this->rootdir . "/data/passwd.users";
         }
 
+        if ($modus == 0) {
+            $usercount=$db->query("SELECT COUNT(*) AS zahl FROM tbluser")->fetch();
+            if ($usercount==NULL) die("Usercount ist kaputt");
+            $this->userzahl=$usercount['zahl'];
+            if ($this->userzahl==0) {
+                $this->akkuser =  'admin';
+                $this->akkrolle=9;
+                syslog(LOG_WARNING,"AkkTool: No User maintained in DB:tbluser, granting admin access. Client: $access " . "{$_SERVER['REMOTE_ADDR']} ({$_SERVER['HTTP_USER_AGENT']})");
+            } else {
+                $this->akkuser = $_SERVER["REMOTE_USER"];
+        
+                $userres=$db->query("SELECT rolle FROM tbluser WHERE login=" . $db->quote($this->akkuser))->fetch();
+                if ($userres==NULL) {
+                    if ($this->akkuser == "admin") {
+                        $this->akkrolle = 9;
+                        syslog(LOG_WARNING,"AkkTool: No admin user maintained in DB:tbluser, granting admin access. Client: $access " . "{$_SERVER['REMOTE_ADDR']} ({$_SERVER['HTTP_USER_AGENT']})");
+                    } else {
+                        die("User existiert nicht in der Datenbank");
+                    }
+                } else {
+                    $this->akkrolle=$userres['rolle'];
+                    if ($this->akkrolle==0) die("User ist gesperrt");
+                    syslog(LOG_WARNING,"AkkTool: Access to user " . $this->akkuser . " granted. Client: "
+                    . "{$_SERVER['REMOTE_ADDR']} ({$_SERVER['HTTP_USER_AGENT']})");
+                }
+            }
+        }
     }
 }
 

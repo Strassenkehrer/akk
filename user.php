@@ -1,8 +1,8 @@
 <?php
   $id="user";
   ini_set('include_path', 'inc');
-include("db.php");
-include("define.php");
+  include("db.php");
+  include("define.php");
   include("head.php");
   include_once("passwdfkt.php");
 

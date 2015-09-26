@@ -188,16 +188,16 @@ if ( isset($_REQUEST['send']) && ($_REQUEST['send']=="Suchen") ) {
         $num_rows = count($rows);
     }
     elseif ( (isset($_REQUEST['mnr']) && strlen(trim($_REQUEST['mnr'])) > 1 ) || (isset($_REQUEST['vorname']) && strlen(trim($_REQUEST['vorname'])) > 1) ) {
-        $nachname = $db->quote($_REQUEST['mnr']); 
+        $nachname = $db->quote($_REQUEST['mnr']);
         $vorname = $db->quote($_REQUEST['vorname']);
-        $fuzzyname = fuzzystring($nachname); 
+        $fuzzyname = fuzzystring($nachname);
         $fuzzyvorname = fuzzystring($vorname);
         if (($fuzzyname != "" || $fuzzyvorname != "") && (strlen($fuzzyname) > 1 || strlen($fuzzyvorname) > 1)) {
 //            $fuzzyname = "%".$fuzzyname."%";
             $fuzzyname = $fuzzyname."%";
 //            $fuzzyvorname = "%".$fuzzyvorname."%";
             $fuzzyvorname = $fuzzyvorname."%";
-            $sql = "SELECT DISTINCTROW a.*, p.akkID AS pid FROM tblakk a LEFT JOIN tblpay p ON a.akkID = p.akkID WHERE suchname LIKE :fuzzyname AND suchvname LIKE :fuzzyvorname ORDER BY nachname, vorname"; 
+            $sql = "SELECT DISTINCTROW a.*, p.akkID AS pid FROM tblakk a LEFT JOIN tblpay p ON a.akkID = p.akkID WHERE suchname LIKE :fuzzyname AND suchvname LIKE :fuzzyvorname ORDER BY nachname, vorname";
             $rs = $db->prepare($sql);
             $rs->bindParam(':fuzzyname', $fuzzyname, PDO::PARAM_STR);
             $rs->bindParam(':fuzzyvorname', $fuzzyvorname, PDO::PARAM_STR);
