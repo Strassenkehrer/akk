@@ -1,8 +1,11 @@
 README
 ======
-Das Script db-init.sql legt die Datenbank 'akk' an.
+Das Script db-init.sql im Verzeichnis _sql legt die Datenbank 'akk' an.
 
 Username und Passwort muessen mit der Einstellung in akk.ini uebereinstimmen.
+
+Es gibt auch ein Script von Lothar namens init.sh-von-lothar.sh
+das noch mehr tut - schaut es auch an bevor ihr es benutzt. 
 
 Userverwaltung für das AKK-TOOL
 ===============================
