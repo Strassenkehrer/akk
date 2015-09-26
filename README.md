@@ -1,8 +1,18 @@
-# akk
-
 Akkreditierungstool für Parteitage.
 https://github.com/Strassenkehrer/akk
 =====================================
+
+WICHTIGER HINWEIS:
+Dieses Tool benötigt entweder
+  a) ein Linux System mit LAMP
+  b) ein OSX/Apple System mit entsprechend MySQL, Apache2, PHP
+
+Windows wird nicht nativ unterstützt.
+
+Bitte setzt das System aus Datenschutzgründen in jedem Fall einer virtuelle 
+Maschine auf und lösche die virtuelle Maschine nach dem erfolgreichen Parteitag
+bzw. sobald du die Daten nicht mehr benötigst (mindestens also nachdem die
+Einspruchsfrist gegen den Parteitag bei Schiedgerichten abgelaufen ist).
 
 Für Deployment und Ausführung:
 
@@ -61,10 +71,18 @@ Listen 1337
    Unter "Statistik" gibt es eine "Userverwaltung".
    Falls du deinen admin Account einträgst, achte auf die richtige Rolle (9).
 
-5. Besorge dir eine Akkreditierungsliste und eine Beitragsliste aus der 
-   Bundesschatzmeisterei (von Lothar oder Irmgard).
+5. Besorge dir eine Akkreditierungsliste und eine Beitragsliste.
+
+   OPTION 1: Frage die Bundesschatzmeisterei (von Lothar oder Irmgard).
    
-   Logge dich wieder ein, wähle im Menü "Upload Mitgliedsdaten"
+   OPTION 2 (brandneu): Im CRM gibt es die Berichte
+   
+     319 - AkkTool Akk-Datei
+     320 - AkkTool Beitrag-Datei
+     
+   Beide Dateien musst du für deine Gliederung herunterladen.
+   
+   Logge dich wieder im Akk-Tool ein, wähle im Menü "Upload Mitgliedsdaten"
    Wähle beide Dateien aus, klicke auf UPLOAD.
    
    Falls der Upload fehlschlägt prüfe ob es Dateien in /web/akk/upload gibt.
@@ -73,7 +91,7 @@ Listen 1337
    Falls Dateien vorhanden: Versuche die Dateien manuell einzuspielen:
    
       /web/akk/data/impakk.sh /web/akk/upload/uplakk.csv
-      /web/akk/data/impakk.sh /web/akk/upload/uplakk.csv
+      /web/akk/data/impbeitrag.sh /web/akk/upload/uplbeitrag.csv
 
    Wenn auch das nicht gelingt, wende dich an Lothar oder Irmgard.
 
