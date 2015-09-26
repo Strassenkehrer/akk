@@ -1,5 +1,9 @@
 # akk
 
+Akkreditierungstool für Parteitage.
+https://github.com/Strassenkehrer/akk
+=====================================
+
 Für Deployment und Ausführung:
 
 1. im Verzeichnis _sql ist ein README.txt für die Datenbank und Apache.
