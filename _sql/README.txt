@@ -13,7 +13,7 @@ In akk.ini und inc/akk.ini sind Einträge für eine htpasswd Datei definiert,
 diese sind aber nicht relevant. 
 
 Relevant ist das "rootdir". Dieses sollte aus Sicherheitsgründen nicht das
-gleiche sein wie dieses hier. Wenn es als
+gleiche sein wie dieses hier. Wenn es als Default oder als
 
 	rootdir = /web/akk
 	
@@ -26,15 +26,22 @@ Die shell scripte (*.sh) aus dem "_sql" Verzeichnis müssen nach /web/akk/data
 kopiert werden
 
 	cp _sql/*.sh /web/akk/data
-   
-Relevant sind die Einträge in .htaccess und inc/.htaccess,
+
+ACHTUNG!
+Damit es funktioniert muss in beiden Scripten die DB Anbindung durch
+	DBUSER, DBPASS, DBNAME
+korrekt gesetzt werden.
+
+
+Ausserdem relevant sind die Einträge in .htaccess und inc/.htaccess,
 welche aber auf die (gleiche) Datei "/web/akk/data/passwd.users" zeigen.
+(bzw. anderer Pfad/Name wie durch rootdir und/oder htpasswd definiert)
 
 Diese muss angelegt werden, Beispiel:
 
 	htpasswd -c /web/akk/data/passwd.users admin
 	
-Es wird empfohlen ein sichere Passwörter zu nehmen!
+Es wird empfohlen ein sicheres Passwort zu nehmen!
 
 Weitere User kannst du über die Web-Oberfläche anlegen.
 Falls du einen User "admin" anlegst achte darauf das er die Rolle "9" bekommt!
@@ -44,7 +51,7 @@ z.B. durch ein
 
 	chgrp -R _www /web/akk
 	chmod -R g+w /web/akk
-	chmod -R a+rx /web
+	chmod a+rx /web/akk /web/akk/data /web/akk/upload /web/akk/data/*.sh
 
 Mac OS X - Wie man apache, sql und php ans laufen bringt
 ========================================================

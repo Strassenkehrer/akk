@@ -59,4 +59,24 @@ Listen 1337
 4. Verbinde dich auf http://localhost:1337/ oder https://localhost:1337/
    Nach login sollte rechts ein Menü erscheinen.
    Unter "Statistik" gibt es eine "Userverwaltung".
-   Falls du deinen admin Account einträgst, achte auf die richtige Rolle.
+   Falls du deinen admin Account einträgst, achte auf die richtige Rolle (9).
+
+5. Besorge dir eine Akkreditierungsliste und eine Beitragsliste aus der 
+   Bundesschatzmeisterei (von Lothar oder Irmgard).
+   
+   Logge dich wieder ein, wähle im Menü "Upload Mitgliedsdaten"
+   Wähle beide Dateien aus, klicke auf UPLOAD.
+   
+   Falls der Upload fehlschlägt prüfe ob es Dateien in /web/akk/upload gibt.
+   Falls nicht: Irgendwas mit den Berechtigungen der Verzeichnisse ist nicht
+                richtig.
+   Falls Dateien vorhanden: Versuche die Dateien manuell einzuspielen:
+   
+      /web/akk/data/impakk.sh /web/akk/upload/uplakk.csv
+      /web/akk/data/impakk.sh /web/akk/upload/uplakk.csv
+
+   Wenn auch das nicht gelingt, wende dich an Lothar oder Irmgard.
+
+
+Dieses README ist im September 2015 entstanden,
+@piratenschlumpf

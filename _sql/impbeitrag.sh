@@ -37,7 +37,8 @@ then
   shred -u $F.zwi 2>/dev/null || rm -f $F.zwi
 fi
 
-mysql --user=root --password=$DBPASS ppdakk <<mysqlende
+chmod a+r $F # mglw hat der mysql deamon user sonst keinen Zugriff auf die Datei
+mysql --user=$DBUSER --password=$DBASS $DBNAME <<mysqlende
   DELETE FROM tblbeitrag;
   LOAD DATA INFILE '$F' INTO TABLE tblbeitrag
      FIELDS TERMINATED BY ';'

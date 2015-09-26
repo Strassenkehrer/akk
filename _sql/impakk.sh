@@ -35,6 +35,7 @@ then
   shred -u $F.zwi 2>/dev/null || rm -f $F.zwi
 fi
 
+chmod a+r $F # mglw hat der mysql deamon user sonst keinen Zugriff auf die Datei
 mysql --user=$DBUSER --password=$DBASS $DBNAME <<mysqlende
   DELETE FROM tblpay;
   DELETE FROM tblakk;
