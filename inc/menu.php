@@ -2,6 +2,7 @@
 echo "<ul>\n";
 href("start", $id, "li", "");
 href("statistik", $id, "li", "");
+href("anonstat", $id, "li", "");
 if ($id != "start") {
     if ($info->akkrolle == 9) href("mneu",$id,"li","");
     if ($info->akkrolle == 9) href("einnahmen",$id,"li","");

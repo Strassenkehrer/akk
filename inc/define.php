@@ -18,6 +18,8 @@ $website['einnahmen']  = array("hmenu"=>"", "menu"=>"", "page"=>"einnahmen", "te
 
 $website['statistik']  = array("hmenu"=>"", "menu"=>"", "page"=>"statistik", "text"=>"Statistik", "titel"=>"Akkreditierungsstatistik");
 
+$website['anonstat']  = array("hmenu"=>"", "menu"=>"", "page"=>"statistik/index", "text"=>"öffentlicher Link", "titel"=>"Akkreditierungsstatistik");
+
 $website['logout']     = array("hmenu"=>"", "menu"=>"", "page"=>"logout", "text"=>"Logout " . $info->akkuser, "titel"=>"Logout");
 
 $website['about']      = array("hmenu"=>"", "menu"=>"", "page"=>"about", "text"=>"Lizenz Akkreditierungstool und Dank", "titel"=>"Lizenz und Dank");
