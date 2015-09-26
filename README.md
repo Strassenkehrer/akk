@@ -9,10 +9,11 @@ Dieses Tool benötigt entweder
 
 Windows wird nicht nativ unterstützt.
 
-Bitte setzt das System aus Datenschutzgründen in jedem Fall einer virtuelle 
-Maschine auf und lösche die virtuelle Maschine nach dem erfolgreichen Parteitag
-bzw. sobald du die Daten nicht mehr benötigst (mindestens also nachdem die
-Einspruchsfrist gegen den Parteitag bei Schiedgerichten abgelaufen ist).
+Bitte setzt das System aus Datenschutzgründen in einer virtuelle Maschine auf 
+einem Host mit verschlüsselten Festplatten auf und lösche die virtuelle Maschine 
+nach dem erfolgreichen Parteitag bzw. sobald du die Daten nicht mehr benötigst 
+(mindestens also nachdem die Einspruchsfrist gegen den Parteitag bei 
+Schiedgerichten abgelaufen ist).
 
 Für Deployment und Ausführung:
 
