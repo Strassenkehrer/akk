@@ -25,7 +25,7 @@ Deployment und Ausführung
 
 Datenbank Setup
 ---------------
-Im Verzeichnis _sql ist ein README.txt für die Datenbank und Apache.
+Im Verzeichnis **_sql** ist ein README.txt für die Datenbank und Apache.
 Dort wird auch das mit der Userverwaltung erklärt.
 Lesen und machen.
 
@@ -94,17 +94,17 @@ Daten
 -----
 Besorge dir eine Akkreditierungsliste und eine Beitragsliste.
 
-   OPTION 1: Im CRM gibt es die Berichte
+**Option 1:** Im CRM gibt es die Berichte
    
 *    319 - AkkTool Akk-Datei
 *    320 - AkkTool Beitrag-Datei
      
-   Beide Dateien musst du für deine Gliederung herunterladen.
+Beide Dateien musst du für deine Gliederung herunterladen.
    
-   OPTION 2: Frage die Bundesschatzmeisterei (von Lothar oder Irmgard).
+**Option 2:** Frage die Bundesschatzmeisterei (von Lothar oder Irmgard).
    
-Datenupload
------------
+Daten-Import
+------------
    Logge dich wieder im Akk-Tool ein, wähle im Menü "Upload Mitgliedsdaten"
    Wähle beide Dateien aus, klicke auf UPLOAD.
    
@@ -120,6 +120,8 @@ Datenupload
 
 ===============================================================================
 
+Danke
+=====
 Hier steht ein Dank an Wilm, der das erste Akk-Tool überhaupt für die 
 Piratenpartei programmiert hat, und an Hendrik und Sebastian, die die 
 Akkreditierung immer reibungslos zum Laufen gebracht haben.
@@ -135,6 +137,6 @@ Irmgard und Lothar, 2015
 ===============================================================================
 
 Dieses README, die Anpassungen an MacOSX und kleinere Änderungen sind 
-im September 2015 entstanden,
+im September 2015 entstanden.
 
 @piratenschlumpf
