@@ -4,15 +4,15 @@ Akkreditierungstool für Piraten Parteitage
 Quelle: https://github.com/Strassenkehrer/akk
 
 WICHTIGER HINWEIS:
-==================
-Dieses Tool benötigt als Server-System entweder
+------------------
+Dieses Tool benötigt **als Server-System** entweder
 
 * ein Linux System mit LAMP
 * ein OSX/Apple System mit entsprechend MySQL, Apache2, PHP
 
 Windows wird nicht nativ unterstützt.
 
-Als Clients genügt ein Browser, Betriebsystem egal.
+**Für die Clients** genügt ein Browser, Betriebsystem egal.
 
 Bitte setzt das System aus Datenschutzgründen in einer virtuelle Maschine auf 
 einem Host mit verschlüsselten Festplatten auf und lösche die virtuelle 
@@ -42,31 +42,31 @@ Pfad ansieht:
    
 Mac:
 ```
-   cd /etc/apache2/users
-   sudo vi $LOGNAME.conf
+cd /etc/apache2/users
+sudo vi $LOGNAME.conf
 ```
-   Trage etwa das folgende ein, wobei BENUTZERNAME dein $LOGNAME ist:
+Trage etwa das folgende ein, wobei BENUTZERNAME dein $LOGNAME ist:
 
 ```
 <Directory "/Users/BENUTZERNAME/Sites/">
-Options Indexes FollowSymLinks Multiviews
-AllowOverride All
-Order allow,deny
-Allow from all
-Require all granted
+	Options Indexes FollowSymLinks Multiviews
+	AllowOverride All
+	Order allow,deny
+	Allow from all
+	Require all granted
 </Directory>
 
 Listen 1337
 <VirtualHost *:1337>
-  DocumentRoot "/Users/BENUTZERNAME/Sites/akk"
+	DocumentRoot "/Users/BENUTZERNAME/Sites/akk"
 </VirtualHost>
 ```
 
-   Noch besser wäre, wenn du SSL für diesen virtuellen host einrichtest.
+Noch besser wäre, wenn du SSL für diesen virtuellen host einrichtest.
    
-   Neustart des Apache2: 
+Neustart des Apache2: 
 ```
-   sudo apachectl restart
+sudo apachectl restart
 ```
 
 Akk-Tool Setup
@@ -74,13 +74,13 @@ Akk-Tool Setup
 Trage deinen Parteitag in inc/akk.ini ein:
 
 ```
-	[akk]
-	Veranstaltung = Bezeichnung des Parteitags, z.B. BPT 15.1
-	Datum = Datumszeitraum, z.B. 25.7. - 26.7.2015
-	Ort = Ort des Parteitags, z.B. Würzburg
-	Ebene = Gliederungsebene: "BV" für einen BPT (Statistik über LVs),
-			"LV" für einen LPT (Statistik über KVs)
-			oder "KV" für eine Kreismitgliederversammlung (Statistik über Orte)
+[akk]
+Veranstaltung = Bezeichnung des Parteitags, z.B. BPT 15.1
+Datum = Datumszeitraum, z.B. 25.7. - 26.7.2015
+Ort = Ort des Parteitags, z.B. Würzburg
+Ebene = Gliederungsebene: "BV" für einen BPT (Statistik über LVs),
+		"LV" für einen LPT (Statistik über KVs)
+		oder "KV" für eine Kreismitgliederversammlung (Statistik über Orte)
 ```
 
 Funktionstest
@@ -96,8 +96,8 @@ Besorge dir eine Akkreditierungsliste und eine Beitragsliste.
 
 **Option 1:** Im CRM gibt es die Berichte
    
-*    319 - AkkTool Akk-Datei
-*    320 - AkkTool Beitrag-Datei
+* 319 - AkkTool Akk-Datei
+* 320 - AkkTool Beitrag-Datei
      
 Beide Dateien musst du für deine Gliederung herunterladen.
    
@@ -105,18 +105,19 @@ Beide Dateien musst du für deine Gliederung herunterladen.
    
 Daten-Import
 ------------
-   Logge dich wieder im Akk-Tool ein, wähle im Menü "Upload Mitgliedsdaten"
-   Wähle beide Dateien aus, klicke auf UPLOAD.
-   
-   Falls der Upload fehlschlägt prüfe ob es Dateien in /web/akk/upload gibt.
-   Falls nicht: Irgendwas mit den Berechtigungen der Verzeichnisse ist nicht
-                richtig.
-   Falls Dateien vorhanden: Versuche die Dateien manuell einzuspielen:
-   
-      /web/akk/data/impakk.sh /web/akk/upload/uplakk.csv
-      /web/akk/data/impbeitrag.sh /web/akk/upload/uplbeitrag.csv
+Logge dich wieder im Akk-Tool ein, wähle im Menü "Upload Mitgliedsdaten"
+Wähle beide Dateien aus, klicke auf UPLOAD.
 
-   Wenn auch das nicht gelingt, wende dich an Lothar oder Irmgard.
+Falls der Upload fehlschlägt prüfe ob es Dateien in /web/akk/upload gibt.
+Falls nicht: Irgendwas mit den Berechtigungen der Verzeichnisse ist nicht
+             richtig.
+Falls Dateien vorhanden: Versuche die Dateien durch Aufruf der Scripte manuell 
+einzuspielen:
+```
+/web/akk/data/impakk.sh /web/akk/upload/uplakk.csv
+/web/akk/data/impbeitrag.sh /web/akk/upload/uplbeitrag.csv
+```
+Wenn auch das nicht gelingt, wende dich an Lothar oder Irmgard.
 
 ===============================================================================
 
