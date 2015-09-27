@@ -28,9 +28,17 @@ kopiert werden
 	cp _sql/*.sh /web/akk/data
 
 ACHTUNG!
-Damit es funktioniert muss in beiden Scripten die DB Anbindung durch
+Damit es funktioniert muss im Script config.sh die DB Anbindung durch
+
 	DBUSER, DBPASS, DBNAME
+
 korrekt gesetzt werden.
+
+	impakk.sh und impbeitrag.sh werden für den Datenupload benötigt.
+	Mittels impwarning.sh können Warnungen an ein Mitglied hinzugefügt werden:
+	
+	Beispiel (Aufruf ohne Parameter liefert eine Hilfe):
+	./impwarnung.sh 1337 "Bitte Ruecksprache mit GenSek"
 
 
 Ausserdem relevant sind die Einträge in .htaccess und inc/.htaccess,

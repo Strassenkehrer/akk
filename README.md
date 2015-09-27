@@ -1,18 +1,23 @@
-Akkreditierungstool für Parteitage.
-https://github.com/Strassenkehrer/akk
-=====================================
+Akkreditierungstool für Piraten Parteitage
+==========================================
+via  https://github.com/Strassenkehrer/akk
+==========================================
 
 WICHTIGER HINWEIS:
-Dieses Tool benötigt entweder
+==================
+Dieses Tool benötigt als Server-System entweder
+
   a) ein Linux System mit LAMP
   b) ein OSX/Apple System mit entsprechend MySQL, Apache2, PHP
 
 Windows wird nicht nativ unterstützt.
 
+Als Clients genügt ein Browser, Betriebsystem egal.
+
 Bitte setzt das System aus Datenschutzgründen in einer virtuelle Maschine auf 
-einem Host mit verschlüsselten Festplatten auf und lösche die virtuelle Maschine 
-nach dem erfolgreichen Parteitag bzw. sobald du die Daten nicht mehr benötigst 
-(mindestens also nachdem die Einspruchsfrist gegen den Parteitag bei 
+einem Host mit verschlüsselten Festplatten auf und lösche die virtuelle 
+Maschine nach dem erfolgreichen Parteitag bzw. sobald du die Daten nicht mehr 
+benötigst  (mindestens also nachdem die Einspruchsfrist gegen den Parteitag bei 
 Schiedgerichten abgelaufen ist).
 
 Für Deployment und Ausführung:
@@ -74,14 +79,14 @@ Listen 1337
 
 5. Besorge dir eine Akkreditierungsliste und eine Beitragsliste.
 
-   OPTION 1: Frage die Bundesschatzmeisterei (von Lothar oder Irmgard).
-   
-   OPTION 2 (brandneu): Im CRM gibt es die Berichte
+   OPTION 1: Im CRM gibt es die Berichte
    
      319 - AkkTool Akk-Datei
      320 - AkkTool Beitrag-Datei
      
    Beide Dateien musst du für deine Gliederung herunterladen.
+   
+   OPTION 2: Frage die Bundesschatzmeisterei (von Lothar oder Irmgard).
    
    Logge dich wieder im Akk-Tool ein, wähle im Menü "Upload Mitgliedsdaten"
    Wähle beide Dateien aus, klicke auf UPLOAD.
@@ -96,6 +101,23 @@ Listen 1337
 
    Wenn auch das nicht gelingt, wende dich an Lothar oder Irmgard.
 
+===============================================================================
 
-Dieses README ist im September 2015 entstanden,
+Hier steht ein Dank an Wilm, der das erste Akk-Tool überhaupt für die 
+Piratenpartei programmiert hat, und an Hendrik und Sebastian, die die 
+Akkreditierung immer reibungslos zum Laufen gebracht haben.
+
+Das Akk-tool wurde zum ersten Mal auf dem BPT 12.2 in Offenbach eingesetzt.
+Es steht unter beerware-lizenz (http://de.wikipedia.org/wiki/Beerware) - denkt 
+daran, wenn ihr sie seht. Es wurde neu geschrieben, weil inzwischen neue Dinge 
+dazugekommen sind, wie die Übersicht über die gezahlten Beiträge. Die gewohnte 
+Oberfläche haben wir beibehalten.
+
+Irmgard und Lothar, 2015
+
+===============================================================================
+
+Dieses README, die Anpassungen an MacOSX und kleinere Änderungen sind 
+im September 2015 entstanden,
+
 @piratenschlumpf

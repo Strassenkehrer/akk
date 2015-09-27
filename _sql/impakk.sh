@@ -1,15 +1,6 @@
 #! /bin/bash
 
-#
-# Achtung:
-# Das Script funktioniert auf jeden Fall mit root Zugriff 
-# auf die DB, das MySQL Kommando
-# LOAD DATA INFILE ..
-# funktioniert naemlich nicht fuer jeden User
-#
-DBUSER=root
-DBPASS=db-password
-DBNAME=pddakk
+. config.sh
 
 F=$1.zwi
 
