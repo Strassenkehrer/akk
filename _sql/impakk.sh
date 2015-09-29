@@ -27,11 +27,11 @@ then
 fi
 
 chmod a+r $F # mglw hat der mysql deamon user sonst keinen Zugriff auf die Datei
-mysql --user=$DBUSER --password=$DBASS $DBNAME <<mysqlende
+mysql --local-infile --user=$DBUSER --password=$DBPASS $DBNAME <<mysqlende
   DELETE FROM tblpay;
   DELETE FROM tblakk;
   DELETE FROM tbladress;
-  LOAD DATA INFILE '$F' INTO TABLE tblakk
+  LOAD DATA LOCAL INFILE '$F' INTO TABLE tblakk
      FIELDS TERMINATED BY ';'
      OPTIONALLY ENCLOSED BY '"'
      LINES TERMINATED BY '\r\n'

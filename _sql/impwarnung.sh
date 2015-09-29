@@ -9,12 +9,12 @@ if [ "$2" == "" ]; then
 fi
 
 if [ "$1" == "$2" ]; then
-mysql --user=$DBUSER --password=$DBASS $DBNAME <<mysqlende
+mysql --user=$DBUSER --password=$DBPASS $DBNAME <<mysqlende
   UPDATE tblakk SET warnung = null WHERE mitgliedsnummer = $1;
 mysqlende
   echo Warnung bei Mitglied $1 entfernt, Kommentar bleibt bestehen.
 else
-mysql --user=$DBUSER --password=$DBASS $DBNAME <<mysqlende  UPDATE tblakk SET warnung = 1, kommentar = "$2" WHERE mitgliedsnummer = $1;
+mysql --user=$DBUSER --password=$DBPASS $DBNAME <<mysqlende  UPDATE tblakk SET warnung = 1, kommentar = "$2" WHERE mitgliedsnummer = $1;
 mysqlende
   echo Warnung bei Mitglied $1 gesetzt.
 fi

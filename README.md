@@ -140,4 +140,4 @@ Irmgard und Lothar, 2015
 Dieses README, die Anpassungen an MacOSX und kleinere Änderungen sind 
 im September 2015 entstanden.
 
-@piratenschlumpf
+:smirk: @piratenschlumpf
