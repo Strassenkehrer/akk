@@ -1,4 +1,4 @@
-DIR=$(realpath -L $(dirname $0)/..)
+DIR=$(realpath $(dirname $0)/..)
 DB=ppdakk
 DBUSER=ppdakk
 DBPASS=passwort-von-DBUSER
@@ -73,7 +73,7 @@ CREATE TABLE tblbeitrag (
   beitragist int(11) default NULL,
   datumsoll date default NULL,
   datumist date default NULL,
-  bemerkung varchar(255) default NULL,
+  bemerkung varchar(255) default NULL
 );
 
 CREATE TABLE tblpay (
@@ -100,7 +100,7 @@ CREATE UNIQUE INDEX iuser01 ON tbluser (name);
 INSERT INTO tbluser (login,name,rolle) VALUES ('$ADMUSER','Administrator',9);
 crtblende
 
-htpasswd2 -bc $PWDFILE $ADMUSER $ADMPASS
+htpasswd -bc $PWDFILE $ADMUSER $ADMPASS
 chmod 666 $PWDFILE
 
 cat >$WEBDIR/.htaccess <<htaccessende
