@@ -6,6 +6,7 @@ Username und Passwort muessen mit der Einstellung in akk.ini uebereinstimmen.
 
 Es gibt auch ein Script von Lothar namens init.sh-von-lothar.sh
 das noch mehr tut - schaut es auch an bevor ihr es benutzt. 
+(Es gab Feedback das init.sh-von-lothar.sh noch Fehler haette)
 
 Userverwaltung für das AKK-TOOL
 ===============================
