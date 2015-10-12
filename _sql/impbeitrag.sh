@@ -1,10 +1,12 @@
 #! /bin/bash
 
-. config.sh
+# OSX (Darwin) does not know "readlink -f"
+[ "$(uname)" == "Darwin" ] && . $(dirname "$0")/config.sh
+
+# Other OS (linux) we expect to know "readlink -f"
+[ "$(uname)" == "Darwin" ] || . $(dirname "$(readlink -f "$0")")/config.sh
 
 F=$1.zwi
-touch $F
-chmod a+r $F
 
 if [ ! -r $1 ]
 then
@@ -18,7 +20,8 @@ then
   exit 0
 fi
 
-sed 's,^﻿,,' <$1 | iconv -f ISO8859-1 -t UTF-8 >$F
+# sed 's,^﻿,,' <$1 | iconv -f ISO8859-1 -t UTF-8 >$F
+sed 's,^﻿,,' <$1 >$F
 
 head -1 $F | grep -q 'mnr*opjahr*beitragsoll'
 if [ "$?" = "0" ]
@@ -28,7 +31,6 @@ then
   shred -u $F.zwi 2>/dev/null || rm -f $F.zwi
 fi
 
-chmod a+r $F # mglw hat der mysql deamon user sonst keinen Zugriff auf die Datei
 mysql --local-infile --user=$DBUSER --password=$DBPASS $DBNAME <<mysqlende
   DELETE FROM tblbeitrag;
   LOAD DATA LOCAL INFILE '$F' INTO TABLE tblbeitrag
@@ -47,5 +49,3 @@ if [ $RESULT == 0 ]; then
 else
 	echo Fehler bei MySQL LOAD DATA INFILE INTO TABLE
 fi
-
-
