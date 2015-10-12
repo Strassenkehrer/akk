@@ -100,7 +100,29 @@ Besorge dir eine Akkreditierungsliste und eine Beitragsliste.
 * 320 - AkkTool Beitrag-Datei
      
 Beide Dateien musst du für deine Gliederung herunterladen.
-   
+
+Der LandesGenSek kann diese Dateien herunterladen, allerdings nur für seinen
+kompletten LV. Um den Inhalt der Dateien für einen KV zu filtern kann er 
+das Script
+```
+extract-lv-kv.sh
+```
+benutzen. Das Script erklärt sich nach Aufruf selbst:
+```
+Usage: ./extract-lv-kv.sh LVCODE "KV NAME" 319_OR_320_REPORT_FILE
+       LVCODE ist das LV Kuerzel in 2 Grossbuchstaben
+       KVNAME ist der exakte komplette Name des KVs wie im CRM
+       319_REPORT_FILE ist der Dateiname des 319er Berichts
+       320_REPORT_FILE ist der Dateiname des 320er Berichts
+```
+Beispiel:
+```
+extract-lv-kv.sh  NW "Duisburg" Downloads/319_TfDA.csv Downloads/320_j1zQ.csv
+```
+filtert die Daten NRWs für "Duisburg" in die Dateien 319_KV.csv und 320_KV.csv
+und der LV GenSek kann diese beiden Dateien als Akkreditierungsdaten an den 
+Kreis "Duisburg" weitergeben.
+
 **Option 2:** Frage die Bundesschatzmeisterei (von Lothar oder Irmgard).
    
 Daten-Import
