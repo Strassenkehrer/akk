@@ -89,6 +89,26 @@ if (isset($_REQUEST['unpay'])) {
     $rs->bindParam(':akkID', $akkid, PDO::PARAM_INT);
     $rs->bindParam(':akkrediteur', $info->akkuser, PDO::PARAM_STR);
     $rs->execute();
+// neuer Eintrag in tblbeitrag
+    $sql = "SELECT MIN(mitgliedsnummer) AS mnr, SUM(gezahlt) AS sum, MIN(beitragoffen) AS offen FROM tblpay WHERE akkID = :akkID";
+    $rs = $db->prepare($sql);
+    $rs->bindParam(':akkID', $akkid, PDO::PARAM_STR);
+    $rs->execute();
+    $row=$rs->fetch();
+    $sum = -$row['sum'];
+    $vmnr = $row['mnr'];
+    $voffen = $row['offen'];
+    $kommentar = '| Unpay: ' . $sum . ' EUR';
+
+    $sql = "INSERT INTO tblpay (akkID, mitgliedsnummer, beitragoffen, gezahlt, akkrediteur, geaendert, kommentar) values (:akkid, :mnr, :offen, :gezahlt, :akkrediteur, now(), :kommentar)";
+    $rs = $db->prepare($sql);
+    $rs->bindParam(':akkid', $akkid, PDO::PARAM_INT);
+    $rs->bindParam(':mnr', $vmnr, PDO::PARAM_STR);
+    $rs->bindParam(':offen', $voffen, PDO::PARAM_INT);
+    $rs->bindParam(':gezahlt', $sum, PDO::PARAM_INT);
+    $rs->bindParam(':kommentar', $kommentar, PDO::PARAM_INT);
+    $rs->bindParam(':akkrediteur', $info->akkuser, PDO::PARAM_STR);
+    $rs->execute();
  }
 
 // Mitgliedsdaten editieren
