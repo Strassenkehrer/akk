@@ -16,6 +16,8 @@ $website['upload']     = array("hmenu"=>"", "menu"=>"", "page"=>"upload", "text"
 
 $website['einnahmen']  = array("hmenu"=>"", "menu"=>"", "page"=>"einnahmen", "text"=>"Eingenommene Beiträge", "titel"=>"Eingenommene Beiträge");
 
+$website['aenderungen']  = array("hmenu"=>"", "menu"=>"", "page"=>"aenderungen", "text"=>"Geänderte Mitglieder", "titel"=>"Geänderte Mitglieder");
+
 $website['statistik']  = array("hmenu"=>"", "menu"=>"", "page"=>"statistik", "text"=>"Statistik", "titel"=>"Akkreditierungsstatistik");
 
 $website['anonstat']  = array("hmenu"=>"", "menu"=>"", "page"=>"statistik/index", "text"=>"öffentlicher Link", "titel"=>"Akkreditierungsstatistik");

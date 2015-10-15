@@ -5,7 +5,9 @@ Bekannte Fehler und TODOs
 
 * Es fehlt im CRM ein Report für AV Daten
 
+
 Erledigte Bekannte Fehler und TODOs
 ===================================
 * Ein PAY, danach UNPAY und danach erneutes PAY bei einem Mitglied verfälscht die Einnahmestatistik.
 
+* Übersicht über Änderungen an Mitlgiedsdaten für den Admin.
