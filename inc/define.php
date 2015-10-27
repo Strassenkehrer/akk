@@ -128,7 +128,11 @@ function fuzzystring($nstring)  {
     $nstring = str_replace('ue','u',$nstring);
     $nstring = str_replace('ck','k',$nstring);
     $nstring = str_replace('ie','i',$nstring);
-    $nstring = substr($nstring,1,1) . str_replace('h','',substr($nstring,1)); // substr ab position 1 , weil db->quote nen ' mitbringt!
+    if (substr($nstring,0,1) === '\'') {
+        $nstring = substr($nstring,1,1) . str_replace('h','',substr($nstring,1)); // substr ab position 1 , weil db->quote nen ' mitbringt!
+    } else {
+        $nstring = substr($nstring,0,1) . str_replace('h','',substr($nstring,0)); // substr ab position 1 , weil db->quote nen ' mitbringt!
+    }
     $offset = 0;
     while ($offset >= 0) {
         $n =  ordutf8($nstring, $offset);
