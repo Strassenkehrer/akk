@@ -65,8 +65,11 @@ z.B. durch ein
 Mac OS X - Wie man apache, sql und php ans laufen bringt
 ========================================================
 
-Man lese
+Man lese (fuer OSX 10.10):
 http://coolestguidesontheplanet.com/get-apache-mysql-php-phpmyadmin-working-osx-10-10-yosemite/
+
+fuer 10.11: 
+http://coolestguidesontheplanet.com/get-apache-mysql-php-and-phpmyadmin-working-on-osx-10-11-el-capitan/
 
 
 1. Möglicherweise ist MySQL für PHP nicht aktiviert.
