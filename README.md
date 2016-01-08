@@ -10,15 +10,24 @@ Dieses Tool benötigt **als Server-System** entweder
 * ein Linux System mit LAMP
 * ein OSX/Apple System mit entsprechend MySQL, Apache2, PHP
 
-Windows wird nicht nativ unterstützt.
+Windows wird als Server-System nicht nativ unterstützt und ist ungetestet.
 
 **Für die Clients** genügt ein Browser, Betriebsystem egal.
+Aus Datenschutzgründen müssen die Clients sich in einem getrennten Netzwerk
+befinden (kein Internet, keine Verbindung zum Rest des Parteitags)
 
 Bitte setzt das System aus Datenschutzgründen in einer virtuelle Maschine auf 
 einem Host mit verschlüsselten Festplatten auf und lösche die virtuelle 
 Maschine nach dem erfolgreichen Parteitag bzw. sobald du die Daten nicht mehr 
 benötigst  (mindestens also nachdem die Einspruchsfrist gegen den Parteitag bei 
 Schiedgerichten abgelaufen ist).
+
+Je nach Betriebsystem benötigt die virtuelle Machine ca. 3GB Plattenplatz, 
+(bei einem genügsamen Linux ohne Grafik, OpenSSH und LAMP installieren z.B. 
+Ubuntu Server 64-bit/amd64 von http://www.ubuntu.com/download/server, 
+1GB Ram, 1 CPU, 2MB Videospeicher) mit Virtualisierungssoftware von
+https://www.virtualbox.org
+
 
 Deployment und Ausführung
 =========================
@@ -90,14 +99,14 @@ Nach login sollte rechts ein Menü erscheinen.
 Unter "Statistik" gibt es eine "Userverwaltung".
 Falls du deinen admin Account einträgst, achte auf die richtige Rolle (9).
 
-Daten
------
+Daten für Parteitage
+--------------------
 Besorge dir eine Akkreditierungsliste und eine Beitragsliste.
 
 **Option 1:** Im CRM gibt es die Berichte
    
-* 319 - AkkTool Akk-Datei
-* 320 - AkkTool Beitrag-Datei
+* 319 - AkkTool Parteitag Akk-Datei
+* 320 - AkkTool Parteitag Beitrag-Datei
      
 Beide Dateien musst du für deine Gliederung herunterladen.
 
@@ -123,8 +132,37 @@ filtert die Daten NRWs für "Duisburg" in die Dateien 319_KV.csv und 320_KV.csv
 und der LV GenSek kann diese beiden Dateien als Akkreditierungsdaten an den 
 Kreis "Duisburg" weitergeben.
 
+
 **Option 2:** Frage die Bundesschatzmeisterei (von Lothar oder Irmgard).
    
+Daten für Aufstellungsversammlungen
+-----------------------------------
+Besorge dir eine Akkreditierungsliste und eine Beitragsliste.
+
+Im CRM gibt es die Berichte
+
+* 323 - AkkTool AV(nur LV) Akk-Datei
+* 324 - AkkTool AV(nur LV) Beitrag-Datei
+
+Weiteres Vorgehen wie oben.
+
+WICHTIG: AV Daten sind nur auf Landesverbands-Ebene verfügbar. Für AVs 
+unterhalb des Bundeslandes muss vorher nach Postleitzahl/Straße auf den
+entsprechende Bezirks-/Kreis-AV Bereicht eingeschränkt werden.
+
+Das Akk-Tool erwartet auch bei AVs eine Stimmberechtigung.
+Das ist rechtlich so nicht nötig. Finde einen Weg das zu umgehen,
+z.B. in dem du eine Fake-Zahlung bei einer AV erfasst.
+
+Daten für Parteitag plus AV
+---------------------------
+Musst du für eine Veranstaltung akkreditieren, bei der Parteitag und AV quasi
+gleichzeitig stattfinden, dann ist die Empfehlung einen Server für den PT und
+einen Server für die AV aufzusetzen.
+In beiden Systemen muss das Mitglied geprüft werden und ggf. nur Unterlagen
+für den Parteitag oder nur die AV ausgehändigt werden.
+
+
 Daten-Import
 ------------
 Logge dich wieder im Akk-Tool ein, wähle im Menü "Upload Mitgliedsdaten"
