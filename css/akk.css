@@ -64,11 +64,11 @@ abbr:hover::after {
 .w40  {width:40ex;}
 .wmax {width:100%;}
 
-.red     {background-color:#F00;}
-.green   {background-color:#ACE200;}
-.yellow  {background-color:#FFE108;}
-.orange  {background-color:#F08000;}
-.warning {background-color:#F30EFF;}
+.offenerbeitrag   {background-color:#F00;}
+.akkreditiert     {background-color:#D22;}
+.akkreditierbar   {background-color:#ACE200;}
+.schwebend        {background-color:#F08000;}
+.warning          {background-color:#F30EFF;}
 
 .akkbutton   {width:60px; font-size:14px; text-align:center; vertical-align:middle;padding:0 0 2px 0; }
 .deakk       {color:red;}

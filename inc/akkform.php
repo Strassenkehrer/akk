@@ -19,17 +19,17 @@ if ($num_rows > 0) {
             $cr = "warning";
         }
         elseif ($rows[$i]['akk'] == 1) {               // bereits akkreditiert
-            $cr = "green";
+            $cr = "akkreditiert";
         }
         elseif ($rows[$i]['schwebend'] == -1) {       // muss noch entschwebt werden. noch klären, wo offener Beitrag errechnet weird
-            $cr =  "orange";
+            $cr =  "schwebend";
             $zusatz = " schwebend!";
         }
         elseif ($rows[$i]['offenerbeitrag'] == 0 && $rows[$i]['schwebend'] == 0) {   // hat keinen offenen Beitrag und nicht schwebend
-            $cr =  "yellow";
+            $cr =  "akkreditierbar";
         }
         elseif ($rows[$i]['offenerbeitrag'] != 0) {   // hat noch offenen Beitrag
-            $cr = "red";
+            $cr = "offenerbeitrag";
         }
         echo "<tr class='".$cr."'>";
         if (is_null($rows[$i]['mitgliedsnummer'])) {
