@@ -103,7 +103,7 @@ Daten für Parteitage
 --------------------
 Besorge dir eine Akkreditierungsliste und eine Beitragsliste.
 
-**Option 1:** Im CRM gibt es die Berichte
+**Option 1:** Im CRM und im PRM gibt es die Berichte
    
 * 319 - AkkTool Parteitag Akk-Datei
 * 320 - AkkTool Parteitag Beitrag-Datei
