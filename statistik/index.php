@@ -68,6 +68,14 @@ END -->
 $info = new allginfo("akk.ini",1);
 echo "<div id = 'titel'>\n";
 echo "<h1>Statistik " . $info->veranstaltung . " " . $info->ort  . "</h1>\n";
+
+$db = new mydb();
+$sql = "select count(akkId) AS mitglieder,sum(akk) as akkreditiert,
+               sum(offenerbeitrag<1) AS stimmb
+        from tblakk";
+$row = $db->query($sql)->fetch();
+echo "<h2>Akkreditiert: <span style='color: orange; background-color: white;'>&nbsp;",$row['akkreditiert'],"&nbsp;</span></h2>";
+
 echo "<ul></ul>\n";
 echo "</div>\n";
 echo "<div id = 'result'>\n";

@@ -12,12 +12,17 @@ if ($info->ebene == "LV") {
   $selhead="LV";
 }
 
+$sql = "select count(akkId) AS mitglieder,sum(akk) as akkreditiert,
+               sum(offenerbeitrag<1) AS stimmb
+        from tblakk";
+$bigrow = $db->query($sql)->fetch();
+
 $sql = "select lv, kv, ort, count(akkId) AS mitglieder,sum(akk) as akkreditiert,
                sum(offenerbeitrag<1) AS stimmb
         from tblakk group by " . $selebene . " order by " . $selebene . "";
 $q=$db->query($sql);
 echo "<table>\n";
-echo "<tr><thead><th>" . $selhead . "</th><th>Mitglieder</th><th>Stimmberechtigte</th><th>%</th><th>Akkreditierte</th><th>Akk. Mitglieder</th><th>Akk. Stimmb.</th></tr></thead>\n";
+echo "<tr><thead><th>" . $selhead . "</th><th title=\"Mitglieder\">Mtgld</th><th title=\"Stimmberechtigte\">Stimmb.</th><th>%</th><th title=\"Akkreditierte\">Akk.</th><th title=\"Anteil Akkreditierte / Mitglieder\">% Akk. / Mtgld</th><th title=\"Anteil Akkreditierte / Stimmberechtigte\">Akk. Stimmb.</th><th title=\"Stimmgewicht auf dem Parteitag\">Parteitag Anteil</th></tr></thead>\n";
 echo "<tbody>";
 while ($row=$q->fetch()) {
     
@@ -31,24 +36,26 @@ while ($row=$q->fetch()) {
     if ($row['mitglieder'] == 0)
       td("");
     else
-      td(number_format(100 * $row['stimmb'] / $row['mitglieder'],2) . " %","r");
+      td(number_format(100 * $row['stimmb'] / $row['mitglieder'],1) . "&nbsp;%","r");
     td($row['akkreditiert'],"r");
     if ($row['mitglieder'] == 0)
       td("");
     else
-      td(number_format(100 * $row['akkreditiert'] / $row['mitglieder'],2) . " %","r");
+      td(number_format(100 * $row['akkreditiert'] / $row['mitglieder'],1) . "&nbsp;%","r");
     if ($row['stimmb'] == 0)
       td("");
     else
-      td(number_format(100 * $row['akkreditiert'] / $row['stimmb'],2) . " %","r");
+      td(number_format(100 * $row['akkreditiert'] / $row['stimmb'],1) . "&nbsp;%","r");
+
+    if ($bigrow['akkreditiert'] == 0)
+      td("");
+    else
+      td(number_format(100 * $row['akkreditiert'] / $bigrow['akkreditiert'],1) . "&nbsp;%","r");
 
     echo "</tr>\n";
 }
 echo "</tbody>\n";
-$sql = "select count(akkId) AS mitglieder,sum(akk) as akkreditiert,
-               sum(offenerbeitrag<1) AS stimmb
-        from tblakk";
-$row = $db->query($sql)->fetch();
+$row = $bigrow;
 echo "<tfoot><tr>";
 td("Summe");
 td($row['mitglieder'],"r");
