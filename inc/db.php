@@ -17,6 +17,7 @@ class allginfo
 {
     public $veranstaltung;
     public $datum;
+    public $SQLYYYYMMDD;
     public $ort;
     public $akkuser;
     public $akkrolle;
@@ -36,6 +37,7 @@ class allginfo
         if (!$settings = parse_ini_file($file, TRUE)) throw new exception('Unable to open ' . $file . '.');
         $this->veranstaltung = $settings['akk']['Veranstaltung'];
         $this->datum = $settings['akk']['Datum'];
+        $this->SQLYYYYMMDD = $settings['akk']['SQLYYYYMMDD'];
         $this->ort = $settings['akk']['Ort'];
         $this->ebene = $settings['akk']['Ebene'];
         
