@@ -2,7 +2,10 @@
 
 set -e
 
-. $(dirname "$(readlink -f "$0")")/config.sh
+# OSX (Darwin) does not know "readlink -f"
+# Other OS (linux) we expect to know "readlink -f"
+[ "$(uname)" == "Darwin" ] && . $(dirname "$0")/config.sh
+[ "$(uname)" == "Darwin" ] || . $(dirname "$(readlink -f "$0")")/config.sh
 
 
 mysql --local-infile --user=$DBADMINUSER --password=$DBADMINPASS $DBNAME <<mysqlende
